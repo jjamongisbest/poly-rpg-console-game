@@ -23,23 +23,31 @@ public class MainGame extends _Run {
 
 		while (true) {
 			
-			System.out.println("[ LostYark RPG ]");
-			if(user.checkLogIn() != null)
-				System.out.print(user.checkLogIn());
-			System.out.println("[1] 회원가입");
-			System.out.println("[2] 회원탈퇴");
-			System.out.println("[3] 로그인");
-			System.out.println("[4] 로그아웃");
-			System.out.print(": ");
-
-			String sel = inputValue();
-			int sel2 = checkString(sel);
-
-			if (sel2 == 1) user.signUp();
-			 else if(sel2 == 2) user.leave();
-			 else if(sel2 == 3) user.logIn();
-			 else if(sel2 == 4) user.logOut();
+			if(!user.isLoggedIn()) {
+				userManagement();
+			}
+			
 		}
+	}
+	
+	private void userManagement() {
+
+		System.out.println("[ LostYark RPG ]");
+		if(user.checkLogIn() != null)
+			System.out.print(user.checkLogIn());
+		System.out.println("[1] 회원가입");
+		System.out.println("[2] 회원탈퇴");
+		System.out.println("[3] 로그인");
+		System.out.println("[4] 로그아웃");
+		System.out.print(": ");
+
+		String sel = inputValue();
+		int sel2 = checkString(sel);
+
+		if (sel2 == 1) user.signUp();
+		 else if(sel2 == 2) user.leave();
+		 else if(sel2 == 3) user.logIn();
+		 else if(sel2 == 4) user.logOut();
 	}
 
 	@SuppressWarnings("null")

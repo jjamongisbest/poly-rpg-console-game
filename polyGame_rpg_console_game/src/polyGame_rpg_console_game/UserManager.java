@@ -162,6 +162,10 @@ public class UserManager {
 		} else
 			return null;
 	}
+	
+	public boolean isLoggedIn() {
+		return this.log != -1;
+	}
 
 	public static UserManager getInstance() {
 		return instance;
